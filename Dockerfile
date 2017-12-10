@@ -8,16 +8,19 @@ RUN groupadd hadoop && \
 RUN wget http://ftp.jaist.ac.jp/pub/apache/spark/spark-2.2.0/spark-2.2.0-bin-hadoop2.7.tgz && \
  tar zxvf spark-2.2.0-bin-hadoop2.7.tgz && \
  cp -R spark-2.2.0-bin-hadoop2.7 /usr/local/spark-2.2 && \
- chown -R hadoop. /usr/local/spark-2.2
+ chown -R hadoop. /usr/local/spark-2.2 && \
+ rm -rf spark-2.2.0-bin-hadoop2.7.tgz spark-2.2.0-bin-hadoop2.7
 # Install Hadoop2.7.4
 RUN wget http://ftp.jaist.ac.jp/pub/apache/hadoop/common/hadoop-2.7.4/hadoop-2.7.4.tar.gz && \
  tar zxvf hadoop-2.7.4.tar.gz && \
  cp -R hadoop-2.7.4 /usr/local/hadoop-2.7.4 && \
- chown -R hadoop. /usr/local/hadoop-2.7.4
+ chown -R hadoop. /usr/local/hadoop-2.7.4 && \
+ rm -rf hadoop-2.7.4.tar.gz hadoop-2.7.4
 # Install Scala2.11.12
 RUN wget http://downloads.typesafe.com/scala/2.11.12/scala-2.11.12.tgz && \
  tar zxvf scala-2.11.12.tgz && \
- cp -R scala-2.11.12 /usr/local/scala-2.11.12
+ cp -R scala-2.11.12 /usr/local/scala-2.11.12 && \
+ rm -rf scala-2.11.12.tgz scala-2.11.12
 # Hadoop settings
 RUN echo $'<?xml version="1.0" encoding="UTF-8"?>\n\
 <?xml-stylesheet type="text/xsl" href="configuration.xsl"?>\n\

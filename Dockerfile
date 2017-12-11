@@ -21,6 +21,9 @@ RUN wget http://downloads.typesafe.com/scala/2.11.12/scala-2.11.12.tgz && \
  tar zxvf scala-2.11.12.tgz && \
  cp -R scala-2.11.12 /usr/local/scala-2.11.12 && \
  rm -rf scala-2.11.12.tgz scala-2.11.12
+# Install sbt
+RUN wget https://bintray.com/sbt/rpm/rpm -O /etc/yum.repos.d/bintray-sbt-rpm.repo && \
+ yum -y install sbt
 # Hadoop settings
 RUN echo $'<?xml version="1.0" encoding="UTF-8"?>\n\
 <?xml-stylesheet type="text/xsl" href="configuration.xsl"?>\n\
